@@ -1,0 +1,56 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Button from "../components/Button.astro";
+const pageTitle = "FrontEnd Projects";
+---
+
+<style>
+  .banner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .img {
+    background-color: darkorange;
+  }
+
+  .title {
+    font-size: 4rem;
+  }
+
+  .pretitle {
+    font-size: 2rem;
+  }
+
+  .description p {
+    font-size: 1.275rem;
+  }
+
+  mark {
+    background-color: rgb(167, 221, 242);
+    border-radius: 4px;
+  }
+</style>
+
+<BaseLayout pageTitle={pageTitle}>
+  <!-- <section class="section">
+  </section> -->
+  <div class="content-container">
+    <div class="banner">
+      <div class="description">
+        <h3 class="pretitle">HTML CSS JS</h3>
+        <h1 class="title">
+          Frontend<br /><mark>exercises &amp; solutions.</mark>
+        </h1>
+        <p class="text">A collection of projects I've done</p>
+        <Button text="Projects" url="/projects" />
+      </div>
+      <div class="img">
+        <img
+          src="../images/walking_outside.svg"
+          alt="A picture of a girl walking outside"
+        />
+      </div>
+    </div>
+  </div>
+</BaseLayout>

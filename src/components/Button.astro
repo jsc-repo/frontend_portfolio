@@ -1,0 +1,48 @@
+---
+const { text, url } = Astro.props;
+---
+
+<!-- the main__btn is the container -->
+<style>
+  .button {
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: black;
+    border: 1px solid black;
+    background-color: darkorange;
+    padding: 0.5rem 1rem;
+    margin-top: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    position: absolute;
+    transition: all 0.35s;
+    outline: none;
+  }
+
+  .button span {
+    z-index: 300;
+    position: relative;
+  }
+
+  .button::after {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: #ebb524;
+    transition: all 0.35s;
+    border-radius: 4px;
+  }
+
+  .button:hover::after {
+    width: 100%;
+  }
+</style>
+
+<!-- <div class="button__container">
+  <a href={url}>{text}</a>
+</div> -->
+
+<a class="button" id="button" href={url}><span>{text}</span></a>
