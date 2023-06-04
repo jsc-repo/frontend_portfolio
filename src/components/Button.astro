@@ -1,5 +1,5 @@
 ---
-const { text, url } = Astro.props;
+const { text, url, btnStyles } = Astro.props;
 ---
 
 <!-- the main__btn is the container -->
@@ -7,16 +7,20 @@ const { text, url } = Astro.props;
   .button {
     text-decoration: none;
     font-size: 1.2rem;
+    font-weight: bold;
+    box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
+      rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
+      rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
     color: black;
     border: 1px solid black;
     background-color: darkorange;
     padding: 0.5rem 1rem;
-    margin-top: 1rem;
     border-radius: 4px;
     cursor: pointer;
-    position: absolute;
+    position: relative;
     transition: all 0.35s;
     outline: none;
+    text-align: center;
   }
 
   .button span {
@@ -45,4 +49,6 @@ const { text, url } = Astro.props;
   <a href={url}>{text}</a>
 </div> -->
 
-<a class="button" id="button" href={url}><span>{text}</span></a>
+<a class="button" style={btnStyles} id="button" href={url}
+  ><span>{text}</span></a
+>

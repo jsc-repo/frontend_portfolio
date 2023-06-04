@@ -1,19 +1,37 @@
+---
+import Navigation from "./Navigation.astro";
+---
+
 <style>
-  header {
-    display: flex;
-    justify-content: space-between;
+  .avatar__container {
+    border: 2px solid hotpink;
+    width: 3rem;
   }
 
-  nav {
-    display: flex;
-    gap: 1rem;
+  .primary__header {
+    align-items: center;
+    justify-content: space-between;
   }
 </style>
 
-<header>
-  <div class="logo">JAMSTACK</div>
+<header class="primary__header flex">
+  <a class="avatar__container" href="/">
+    <img class="avatar__img" src="../../images/avatar.svg" alt="avatar image" />
+  </a>
+
+  <button
+    class="mobile-nav-toggle"
+    aria-controls="primary__navigation"
+    aria-expanded="false"
+  >
+    <span class="sr-only">Menu</span>
+  </button>
+
   <nav>
-    <a href="/">Home</a>
-    <a href="/about">About</a>
+    <Navigation />
   </nav>
 </header>
+
+<script>
+  import "../scripts/menu";
+</script>
