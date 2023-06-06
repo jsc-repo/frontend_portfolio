@@ -20,6 +20,8 @@ const buttonStyle = {
     box-shadow: 0.65rem 0.6rem 0 hsl(187 60% 40%);
     border-radius: 0.8rem;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
   }
 
   .card__content {
@@ -28,18 +30,27 @@ const buttonStyle = {
 
   .card__img {
     outline: 0.1rem solid;
+    /* object-fit: cover; */
   }
 </style>
 
 <article class="card">
-  <img class="card__img" src="../../images/walking_outside.svg" alt="" />
+  <img
+    class="card__img"
+    src="/src/images/nft-preview-component/image-equilibrium.jpg"
+    alt=""
+  />
   <div class="card__content">
-    <h2>Title</h2>
+    <h2>NFT Preview Card Component</h2>
     <p>
       Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laboriosam,
       tempore!
     </p>
-    <Button text="Go" btnStyles={buttonStyle} />
+    <Button
+      text="Go"
+      btnStyles={buttonStyle}
+      url="/projects/nft-preview-card"
+    />
   </div>
 </article>
 
