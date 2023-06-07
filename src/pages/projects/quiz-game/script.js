@@ -135,6 +135,7 @@ function setNextQuestion() {
   for (let i = 0; i < 4; i++) {
     const newBtn = document.createElement("button");
     newBtn.classList.add("btn");
+    console.log(newBtn);
     newBtn.dataset.answerChoice = randQuestion.answers[i].text;
     newBtn.textContent = randQuestion.answers[i].text;
     newBtn.addEventListener("click", selectAnswer);

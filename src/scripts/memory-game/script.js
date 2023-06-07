@@ -34,7 +34,7 @@ const displayPokemon = async () => {
     .map((p) => {
       return `<div class="card" id="card" onclick="clickCard(this)" data-pokename="${p.name}"> 
       <img class="front" src="${p.sprites.front_default}" alt="${p.name}" />
-      <img class="back" src="pokeball.png" alt="pokeball" />
+      <img class="back" src="/src/images/memory-game/pokeball.png" alt="pokeball" />
       </div>`;
     })
     .join("");

@@ -1,37 +1,35 @@
-* {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-}
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+---
 
-header {
+<style>
+  .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 50px;
-}
+  }
 
-header > button {
+  header > button {
     font-size: 20px;
     height: 2rem;
     width: 5rem;
-}
+  }
 
-/* img {
+  /* img {
     width: 100px;
 } */
 
-.board {
-   
+  .board {
     height: 800px;
     width: 800px;
     display: flex;
-    flex-wrap: wrap;  
+    flex-wrap: wrap;
     margin: auto;
-    perspective: 1000px; 
-}
+    perspective: 1000px;
+  }
 
-.card {
+  .card {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -40,25 +38,38 @@ header > button {
     margin: 5px;
     position: relative;
     transform-style: preserve-3d;
-    transition: transform .5s;
-}
+    transition: transform 0.5s;
+  }
 
-.front, .back {
+  .front,
+  .back {
     width: 100%;
     height: 100%;
     position: absolute;
     background: slateblue;
     backface-visibility: hidden;
-}
+  }
 
-.front {
+  .front {
     transform: rotateY(180deg);
-}
+  }
 
-.rotated {
+  .rotated {
     transform: rotateY(180deg);
-} 
+  }
 
-.disablePointer {
+  .disablePointer {
     pointer-events: none;
-}
+  }
+</style>
+
+<BaseLayout pageTitle="Memory Game">
+  <div class="header">
+    <h1>Memory Game</h1>
+    <button onclick="resetGame()">Reset</button>
+  </div>
+
+  <div class="board" id="board"></div>
+</BaseLayout>
+
+<script src="/src/scripts/memory-game/script.js"></script>
