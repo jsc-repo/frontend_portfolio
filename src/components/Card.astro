@@ -1,5 +1,6 @@
 ---
 import Button from "./Button.astro";
+import projectData from "../scripts/project_data.json";
 
 const { cardStyles, cardTitle, cardPath, cardDescription } = Astro.props;
 
@@ -34,48 +35,17 @@ const buttonStyle = {
   }
 </style>
 
-<article class="card">
-  <img
-    class="card__img"
-    src="/src/images/nft-preview-component/image-equilibrium.jpg"
-    alt=""
-  />
-  <div class="card__content">
-    <h2>NFT Preview Card Component</h2>
-    <p>
-      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laboriosam,
-      tempore!
-    </p>
-    <Button
-      text="Go"
-      btnStyles={buttonStyle}
-      url="/projects/nft-preview-card"
-    />
-  </div>
-</article>
-
-<article class="card">
-  <img class="card__img" src="../../images/walking_outside.svg" alt="" />
-  <div class="card__content">
-    <h2>Title</h2>
-    <p>
-      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laboriosam,
-      tempore!
-    </p>
-    <Button text="Go" btnStyles={buttonStyle} />
-  </div>
-</article>
-
-<article class="card">
-  <img class="card__img" src="../../images/walking_outside.svg" alt="" />
-  <div class="card__content">
-    <h2>Title</h2>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore ab
-      officiis corporis tempore ducimus! Deserunt, veritatis ullam. Dolores
-      consequatur ut molestias doloremque est quo neque maiores aut hic illo?
-      Ipsum?
-    </p>
-    <Button text="Go" btnStyles={buttonStyle} style={cardStyles} />
-  </div>
-</article>
+{
+  projectData.map((p) => {
+    return (
+      <article class="card">
+        <img class="card__img" src={p.imgUrl} alt={p.imgAltText} />
+        <div class="card__content">
+          <h2>{p.title}</h2>
+          <p>{p.description}</p>
+          <Button text="Go" btnStyles={buttonStyle} url={p.projectUrl} />
+        </div>
+      </article>
+    );
+  })
+}
