@@ -2,7 +2,7 @@
   {
     "title": "NFT Preview Card Component",
     "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laboriosam, tempore!",
-    "imgUrl": "src/images/nft-preview-component/image-equilibrium.jpg",
+    "imgUrl": "/src/images/nft-preview-component/image-equilibrium.jpg",
     "imgAltText": "Picture of a cube.",
     "projectUrl": "/projects/nft-preview-card"
   },
@@ -10,7 +10,7 @@
   {
     "title": "Product Preview Card",
     "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laboriosam, tempore!",
-    "imgUrl": "src/images/product-preview-card/image-product-mobile.jpg",
+    "imgUrl": "/src/images/product-preview-card/image-product-mobile.jpg",
     "imgAltText": "Image of a Chanel perfume bottle lying flat.",
     "projectUrl": "/projects/product-preview-card"
   },
@@ -18,7 +18,7 @@
   {
     "title": "Memory Game",
     "description": "Game to test your memory!",
-    "imgUrl": "src/images/memory-game/pokeball.png",
+    "imgUrl": "/src/images/memory-game/pokeball.png",
     "imgAltText": "Image of a pokeball.",
     "projectUrl": "/projects/memory-game"
   },
@@ -26,7 +26,7 @@
   {
     "title": "Snake Game",
     "description": "Classic Snake Game",
-    "imgUrl": "src/images/snake-game/snake.JPG",
+    "imgUrl": "/src/images/snake-game/snake.JPG",
     "imgAltText": "Image of the snake game.",
     "projectUrl": "/projects/snake-game"
   }
