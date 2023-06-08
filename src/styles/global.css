@@ -155,7 +155,7 @@ body {
   .mobile-nav-toggle {
     position: absolute;
     z-index: 9999;
-    background: url("../../images/menu-icon.svg");
+    background: url("../../src/images/menu-icon.svg");
     background-repeat: no-repeat;
     background-size: cover;
     cursor: pointer;

@@ -10,7 +10,7 @@
   {
     "title": "Product Preview Card",
     "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laboriosam, tempore!",
-    "imgUrl": "jsc-repo.github.io/src/images/product-preview-card/image-product-mobile.jpg",
+    "imgUrl": "/jsc-repo.github.io/src/images/product-preview-card/image-product-mobile.jpg",
     "imgAltText": "Image of a Chanel perfume bottle lying flat.",
     "projectUrl": "/projects/product-preview-card"
   },
