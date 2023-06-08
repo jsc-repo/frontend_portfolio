@@ -168,6 +168,6 @@ body {
   }
 
   .mobile-nav-toggle[aria-expanded="true"] {
-    background-image: url("../../images/x-symbol.svg");
+    background-image: url("../../src/images/x-symbol.svg");
   }
 }
