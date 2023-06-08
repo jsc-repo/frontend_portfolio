@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Button from "../components/Button.astro";
+import hero_img from "../images/walking_outside.svg";
 const pageTitle = "FrontEnd Projects";
 ---
 
@@ -36,10 +37,7 @@ const pageTitle = "FrontEnd Projects";
       <p class="text">A collection of projects I've done</p>
     </div>
     <div class="content__img">
-      <img
-        src="../images/walking_outside.svg"
-        alt="A picture of a girl walking outside"
-      />
+      <img src={hero_img} alt="A picture of a girl walking outside" />
     </div>
     <Button text="Projects" url="/projects/" btnStyles="margin-top: 1rem" />
   </div>
