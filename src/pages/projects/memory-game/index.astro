@@ -1,67 +1,7 @@
 ---
 import BaseLayout from "../../../layouts/BaseLayout.astro";
+import "../../../styles/memory-game/memorystyle.css";
 ---
-
-<style>
-  .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 50px;
-  }
-
-  header > button {
-    font-size: 20px;
-    height: 2rem;
-    width: 5rem;
-  }
-
-  /* img {
-    width: 100px;
-} */
-
-  .board {
-    height: 800px;
-    width: 800px;
-    display: flex;
-    flex-wrap: wrap;
-    margin: auto;
-    perspective: 1000px;
-  }
-
-  .card {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: calc(25% - 10px);
-    width: calc(25% - 10px);
-    margin: 5px;
-    position: relative;
-    transform-style: preserve-3d;
-    transition: transform 0.5s;
-  }
-
-  .front,
-  .back {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    background: slateblue;
-    backface-visibility: hidden;
-  }
-
-  .front {
-    transform: rotateY(180deg);
-  }
-
-  .rotated {
-    transform: rotateY(180deg);
-  }
-
-  .disablePointer {
-    pointer-events: none;
-  }
-</style>
 
 <BaseLayout pageTitle="Memory Game">
   <div class="header">
@@ -72,4 +12,96 @@ import BaseLayout from "../../../layouts/BaseLayout.astro";
   <div class="board" id="board"></div>
 </BaseLayout>
 
-<script src="/src/scripts/memory-game/script.js"></script>
+<script is:inline>
+  const pokeAPIBaseURL = "https://pokeapi.co/api/v2/pokemon/";
+  const board = document.getElementById("board");
+  let hasFlippedCard = false;
+  let firstCard, secondCard;
+  let isPaused = false;
+
+  const createEightRandNums = () => {
+    const uniqueEight = new Set();
+
+    while (uniqueEight.size < 8) {
+      const randNum = Math.ceil(Math.random() * 150);
+      uniqueEight.add(randNum);
+    }
+
+    return [...uniqueEight];
+  };
+
+  const fetchPokemon = async () => {
+    const numsArray = createEightRandNums();
+    const responses = await Promise.all(
+      numsArray.map((num) => fetch(pokeAPIBaseURL + num))
+    );
+
+    const pokeArray = await Promise.all(responses.map((r) => r.json()));
+    return [...pokeArray, ...pokeArray];
+  };
+
+  function clickCard(card) {
+    if (isPaused) return;
+
+    if (card === firstCard) return;
+
+    card.classList.add("rotated");
+
+    if (!hasFlippedCard) {
+      firstCard = card;
+
+      hasFlippedCard = true;
+    } else {
+      secondCard = card;
+      hasFlippedCard = false;
+      checkMatch();
+    }
+  }
+
+  const displayPokemon = async () => {
+    const pokeArray = await fetchPokemon();
+
+    pokeArray.sort((_) => 0.5 - Math.random());
+
+    const pokeHTML = pokeArray
+      .map((p) => {
+        return `<div class="card" id="card" onclick="clickCard(this)" data-pokename="${p.name}">
+      <img class="front" src="${p.sprites.front_default}" alt="${p.name}" />
+      <img class="back" src="/src/images/memory-game/pokeball.png" alt="pokeball" />
+      </div>`;
+      })
+      .join("");
+
+    board.innerHTML = pokeHTML;
+
+    return pokeArray;
+  };
+
+  const checkMatch = () => {
+    isPaused = true;
+    if (firstCard.dataset.pokename === secondCard.dataset.pokename) {
+      firstCard.classList.add("disablePointer");
+      secondCard.classList.add("disablePointer");
+      setTimeout(() => {
+        isPaused = false;
+      }, 1500);
+    } else {
+      isPaused = true;
+      setTimeout(() => {
+        firstCard.classList.remove("rotated");
+        secondCard.classList.remove("rotated");
+        [firstCard, secondCard] = [null, null];
+        console.log(firstCard, secondCard);
+        isPaused = false;
+        console.log("Try again");
+      }, 2000);
+    }
+  };
+
+  const resetGame = () => {
+    console.log("reset");
+    displayPokemon();
+  };
+
+  resetGame();
+</script>

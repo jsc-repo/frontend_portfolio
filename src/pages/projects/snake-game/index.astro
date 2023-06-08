@@ -3,26 +3,12 @@ import BaseLayout from "../../../layouts/BaseLayout.astro";
 ---
 
 <style>
-  *,
-  *::after,
-  *::before {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-
-  header {
-    display: flex;
-    justify-content: center;
-  }
-
-  body {
+  .game__container {
     display: flex;
     flex-direction: column;
-    gap: 50px;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    margin-top: 2rem;
   }
 
   .board {
@@ -30,12 +16,12 @@ import BaseLayout from "../../../layouts/BaseLayout.astro";
   }
 </style>
 
-<body>
-  <BaseLayout pageTitle="Snake Game">
-    <header><h1>Snake Game</h1></header>
+<BaseLayout pageTitle="Snake Game">
+  <div class="game__container">
+    <h1>Snake Game</h1>
 
     <canvas class="board" id="board"></canvas>
-  </BaseLayout>
-</body>
+  </div>
+</BaseLayout>
 
 <script src="./script.js"></script>

@@ -2,7 +2,14 @@
 import Button from "./Button.astro";
 import projectData from "../scripts/project_data.json";
 
-const { cardStyles, cardTitle, cardPath, cardDescription } = Astro.props;
+const {
+  cardStyles,
+  cardTitle,
+  imgAltText,
+  cardPath,
+  cardDescription,
+  projectUrl,
+} = Astro.props;
 
 const buttonStyle = {
   display: "grid",
@@ -35,7 +42,16 @@ const buttonStyle = {
   }
 </style>
 
-{
+<article class="card">
+  <img class="card__img" src={cardPath} alt={imgAltText} />
+  <div class="card__content">
+    <h2>{cardTitle}</h2>
+    <p>{cardDescription}</p>
+    <Button text="Go" btnStyles={buttonStyle} url={projectUrl} />
+  </div>
+</article>
+
+<!-- {
   projectData.map((p) => {
     return (
       <article class="card">
@@ -48,4 +64,4 @@ const buttonStyle = {
       </article>
     );
   })
-}
+} -->

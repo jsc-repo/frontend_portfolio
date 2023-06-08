@@ -1,6 +1,7 @@
 ---
 import Card from "../../components/Card.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import projectData from "../../scripts/project_data.json";
 ---
 
 <style>
@@ -12,6 +13,16 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 <BaseLayout pageTitle="Projects">
   <section class="articles content__container">
     <h1 class="project__title">Frontend Projects</h1>
-    <Card />
+    {
+      projectData.map((p) => (
+        <Card
+          cardTitle={p.title}
+          imgAltText={p.imgAltText}
+          cardPath={p.imgUrl}
+          cardDescription={p.description}
+          projectUrl={p.projectUrl}
+        />
+      ))
+    }
   </section>
 </BaseLayout>

@@ -17,6 +17,7 @@ let velocityX = 0;
 let velocityY = 0;
 
 let snakeBody = [];
+let gameOver = false;
 
 document.addEventListener("DOMContentLoaded", () => {
   board = document.getElementById("board");
@@ -66,6 +67,10 @@ function changeDirection(e) {
 }
 
 function update() {
+  if (gameOver) {
+    return;
+  }
+
   context.fillStyle = "black";
   context.fillRect(0, 0, board.width, board.height);
 
@@ -79,7 +84,6 @@ function update() {
   }
 
   for (let i = snakeBody.length - 1; i > 0; i--) {
-    console.log(i);
     snakeBody[i] = snakeBody[i - 1];
   }
 
@@ -96,5 +100,23 @@ function update() {
   // draw the rest of the snake's body
   for (let i = 0; i < snakeBody.length; i++) {
     context.fillRect(snakeBody[i][0], snakeBody[i][1], tileSize, tileSize);
+  }
+
+  //game over conditions
+  if (
+    snakeX < 0 ||
+    snakeX > cols * tileSize ||
+    snakeY < 0 ||
+    snakeY > rows * tileSize
+  ) {
+    gameOver = true;
+    alert("Game Over");
+  }
+
+  for (let i = 0; i < snakeBody.length; i++) {
+    if (snakeX == snakeBody[i][0] && snakeY == snakeBody[i][1]) {
+      gameOver = true;
+      alert("Game Over");
+    }
   }
 }
