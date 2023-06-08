@@ -1,5 +1,6 @@
 ---
 import Navigation from "./Navigation.astro";
+import avatar from "../images/avatar.svg";
 ---
 
 <style>
@@ -17,7 +18,7 @@ import Navigation from "./Navigation.astro";
 
 <header class="primary__header flex">
   <a class="avatar__container" href="/">
-    <img class="avatar__img" src="images/avatar.svg" alt="avatar image" />
+    <img class="avatar__img" src={avatar} alt="avatar image" />
   </a>
 
   <button
