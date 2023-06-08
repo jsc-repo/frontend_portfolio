@@ -2,7 +2,7 @@
   {
     "title": "NFT Preview Card Component",
     "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laboriosam, tempore!",
-    "imgUrl": "../../images/nft-preview-component/image-equilibrium.jpg",
+    "imgUrl": "../../src/images/nft-preview-component/image-equilibrium.jpg",
     "imgAltText": "Picture of a cube.",
     "projectUrl": "/projects/nft-preview-card"
   },
@@ -18,7 +18,7 @@
   {
     "title": "Memory Game",
     "description": "Game to test your memory!",
-    "imgUrl": "/images/memory-game/pokeball.png",
+    "imgUrl": "/jsc-repo.github.io/src/images/memory-game/pokeball.png",
     "imgAltText": "Image of a pokeball.",
     "projectUrl": "/projects/memory-game"
   },
