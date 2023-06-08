@@ -2,7 +2,7 @@
   {
     "title": "NFT Preview Card Component",
     "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laboriosam, tempore!",
-    "imgUrl": "https://github.com/jsc-repo/jsc-repo.github.io/blob/main/src/images/nft-preview-component/image-equilibrium.jpg",
+    "imgUrl": "../../images/nft-preview-component/image-equilibrium.jpg",
     "imgAltText": "Picture of a cube.",
     "projectUrl": "/projects/nft-preview-card"
   },
@@ -10,7 +10,7 @@
   {
     "title": "Product Preview Card",
     "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laboriosam, tempore!",
-    "imgUrl": "./src/images/product-preview-card/image-product-mobile.jpg",
+    "imgUrl": "../../../src/images/product-preview-card/image-product-mobile.jpg",
     "imgAltText": "Image of a Chanel perfume bottle lying flat.",
     "projectUrl": "/projects/product-preview-card"
   },
