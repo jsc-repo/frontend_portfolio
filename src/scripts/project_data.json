@@ -26,7 +26,7 @@
   {
     "title": "Snake Game",
     "description": "Classic Snake Game",
-    "imgUrl": "jsc-repo.github.io/images/snake-game/snake.JPG",
+    "imgUrl": "/images/snake-game/snake.JPG",
     "imgAltText": "Image of the snake game.",
     "projectUrl": "/projects/snake-game"
   }
